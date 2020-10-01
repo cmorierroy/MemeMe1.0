@@ -75,6 +75,15 @@
                             <constraint firstItem="1ka-tf-fRD" firstAttribute="top" secondItem="Evh-xr-yL2" secondAttribute="bottom" id="y84-i0-NJm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomText" destination="Wuk-Wd-ZvF" id="8oO-B6-38k"/>
+                        <outlet property="cameraButton" destination="GO1-1H-evn" id="MID-Lc-jWT"/>
+                        <outlet property="cancelButton" destination="7gE-T8-bEf" id="fmw-yq-Rv3"/>
+                        <outlet property="imageView" destination="Evh-xr-yL2" id="zoc-hG-vY3"/>
+                        <outlet property="libraryButton" destination="uZy-m2-nQQ" id="s93-rY-UOe"/>
+                        <outlet property="shareButton" destination="JSO-eC-qDm" id="Rbp-2u-xYf"/>
+                        <outlet property="topText" destination="xEu-FR-vVD" id="CLb-Vh-8he"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
