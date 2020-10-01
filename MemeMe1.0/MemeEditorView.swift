@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorView.swift
 //  MemeMe1.0
 //
 //  Created by Cédric Morier-Roy on 2020-10-01.
@@ -9,12 +9,17 @@ import UIKit
 
 class MemeEditorView: UIViewController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        //test
     }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+                
+    }
+    
 
 
 }
