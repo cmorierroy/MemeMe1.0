@@ -15,7 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-tf-fRD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0u2-59-jLE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-FR-vVD">
+                                <rect key="frame" x="0.0" y="50" width="375" height="57.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wuk-Wd-ZvF">
+                                <rect key="frame" x="0.0" y="559.5" width="375" height="57.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-tf-fRD">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -34,60 +47,47 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="esW-Fx-ifW"/>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhs-gt-cpb">
+                            <navigationBar alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhs-gt-cpb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="MlM-h5-TmY">
                                         <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="JSO-eC-qDm" userLabel="Share Button"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="7gE-T8-bEf" userLabel="Cancel Button"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="7gE-T8-bEf" userLabel="Cancel Button">
+                                            <connections>
+                                                <action selector="cancel" destination="BYZ-38-t0r" id="pq0-fZ-d81"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Evh-xr-yL2">
-                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-FR-vVD">
-                                <rect key="frame" x="0.0" y="50" width="375" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wuk-Wd-ZvF">
-                                <rect key="frame" x="0.0" y="583" width="375" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xEu-FR-vVD" secondAttribute="trailing" id="0vC-hF-1F7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0u2-59-jLE" secondAttribute="trailing" id="7tl-vd-FtW"/>
                             <constraint firstItem="1ka-tf-fRD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Agk-7b-HfP"/>
                             <constraint firstItem="Wuk-Wd-ZvF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LB6-0V-rKN"/>
                             <constraint firstItem="xEu-FR-vVD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="RFr-ye-CZX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="0u2-59-jLE" secondAttribute="top" id="SGb-tq-ThG"/>
                             <constraint firstItem="xEu-FR-vVD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SyR-Os-JIO"/>
                             <constraint firstItem="Fhs-gt-cpb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tdy-Mm-DlN"/>
-                            <constraint firstItem="Evh-xr-yL2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xws-la-1T5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wuk-Wd-ZvF" secondAttribute="bottom" constant="50" id="bc4-5p-RZQ"/>
                             <constraint firstItem="1ka-tf-fRD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cQN-AD-BPP"/>
+                            <constraint firstItem="0u2-59-jLE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dDZ-W8-QuI"/>
                             <constraint firstItem="Fhs-gt-cpb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dfB-xV-6N8"/>
-                            <constraint firstItem="Evh-xr-yL2" firstAttribute="top" secondItem="Fhs-gt-cpb" secondAttribute="bottom" id="fyc-XZ-Zm6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Evh-xr-yL2" secondAttribute="trailing" id="grJ-gx-e88"/>
                             <constraint firstItem="Fhs-gt-cpb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h8Z-YP-WIr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wuk-Wd-ZvF" secondAttribute="trailing" id="iEA-dC-X5Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0u2-59-jLE" secondAttribute="bottom" id="rLC-CM-cFP"/>
                             <constraint firstItem="1ka-tf-fRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uxq-vt-pAS"/>
-                            <constraint firstItem="1ka-tf-fRD" firstAttribute="top" secondItem="Evh-xr-yL2" secondAttribute="bottom" id="y84-i0-NJm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomText" destination="Wuk-Wd-ZvF" id="8oO-B6-38k"/>
                         <outlet property="cameraButton" destination="GO1-1H-evn" id="MID-Lc-jWT"/>
                         <outlet property="cancelButton" destination="7gE-T8-bEf" id="fmw-yq-Rv3"/>
-                        <outlet property="imageView" destination="Evh-xr-yL2" id="zoc-hG-vY3"/>
+                        <outlet property="imageView" destination="0u2-59-jLE" id="Tck-3w-Fom"/>
                         <outlet property="libraryButton" destination="uZy-m2-nQQ" id="s93-rY-UOe"/>
                         <outlet property="shareButton" destination="JSO-eC-qDm" id="Rbp-2u-xYf"/>
                         <outlet property="topText" destination="xEu-FR-vVD" id="CLb-Vh-8he"/>
