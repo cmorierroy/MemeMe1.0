@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,24 +12,24 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MemeEditorView" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0u2-59-jLE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-FR-vVD">
-                                <rect key="frame" x="0.0" y="50" width="375" height="57.5"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="57.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wuk-Wd-ZvF">
-                                <rect key="frame" x="0.0" y="559.5" width="375" height="57.5"/>
+                                <rect key="frame" x="0.0" y="754.5" width="414" height="57.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-tf-fRD">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NTe-09-rFg"/>
@@ -48,11 +48,15 @@
                                 </items>
                             </toolbar>
                             <navigationBar alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhs-gt-cpb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="MlM-h5-TmY">
-                                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="JSO-eC-qDm" userLabel="Share Button"/>
+                                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="JSO-eC-qDm" userLabel="Share Button">
+                                            <connections>
+                                                <action selector="share" destination="BYZ-38-t0r" id="cTd-Jw-5kq"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="7gE-T8-bEf" userLabel="Cancel Button">
                                             <connections>
                                                 <action selector="cancel" destination="BYZ-38-t0r" id="pq0-fZ-d81"/>
@@ -70,7 +74,7 @@
                             <constraint firstItem="1ka-tf-fRD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Agk-7b-HfP"/>
                             <constraint firstItem="Wuk-Wd-ZvF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LB6-0V-rKN"/>
                             <constraint firstItem="xEu-FR-vVD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="RFr-ye-CZX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="0u2-59-jLE" secondAttribute="top" id="SGb-tq-ThG"/>
+                            <constraint firstAttribute="top" secondItem="0u2-59-jLE" secondAttribute="top" id="SGb-tq-ThG"/>
                             <constraint firstItem="xEu-FR-vVD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SyR-Os-JIO"/>
                             <constraint firstItem="Fhs-gt-cpb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tdy-Mm-DlN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wuk-Wd-ZvF" secondAttribute="bottom" constant="50" id="bc4-5p-RZQ"/>
@@ -79,7 +83,7 @@
                             <constraint firstItem="Fhs-gt-cpb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dfB-xV-6N8"/>
                             <constraint firstItem="Fhs-gt-cpb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h8Z-YP-WIr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wuk-Wd-ZvF" secondAttribute="trailing" id="iEA-dC-X5Z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0u2-59-jLE" secondAttribute="bottom" id="rLC-CM-cFP"/>
+                            <constraint firstAttribute="bottom" secondItem="0u2-59-jLE" secondAttribute="bottom" id="rLC-CM-cFP"/>
                             <constraint firstItem="1ka-tf-fRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uxq-vt-pAS"/>
                         </constraints>
                     </view>
@@ -89,7 +93,9 @@
                         <outlet property="cancelButton" destination="7gE-T8-bEf" id="fmw-yq-Rv3"/>
                         <outlet property="imageView" destination="0u2-59-jLE" id="Tck-3w-Fom"/>
                         <outlet property="libraryButton" destination="uZy-m2-nQQ" id="s93-rY-UOe"/>
+                        <outlet property="navbar" destination="Fhs-gt-cpb" id="3sr-yE-Cx5"/>
                         <outlet property="shareButton" destination="JSO-eC-qDm" id="Rbp-2u-xYf"/>
+                        <outlet property="toolbar" destination="1ka-tf-fRD" id="U9T-UP-k3Y"/>
                         <outlet property="topText" destination="xEu-FR-vVD" id="CLb-Vh-8he"/>
                     </connections>
                 </viewController>
