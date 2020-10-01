@@ -15,42 +15,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="riU-In-Zwf">
-                                <rect key="frame" x="0.0" y="0.0" width="83" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-tf-fRD">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem id="zIR-jT-ljz">
-                                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="eJU-P8-ty2"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="uUZ-SU-3LT"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NTe-09-rFg"/>
+                                    <barButtonItem image="camera" catalog="system" id="GO1-1H-evn" userLabel="Camera Button"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="44r-6q-rO4"/>
+                                    <barButtonItem title="Select From Photos" id="uZy-m2-nQQ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="esW-Fx-ifW"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhs-gt-cpb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="MlM-h5-TmY">
+                                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="JSO-eC-qDm" userLabel="Share Button"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="7gE-T8-bEf" userLabel="Cancel Button"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TT0-0V-hoH">
-                                <rect key="frame" x="0.0" y="915" width="83" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xaC-rD-jpw"/>
-                                    <barButtonItem image="camera" catalog="system" id="Nhr-3l-QaL"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rmp-V8-abv"/>
-                                    <barButtonItem title="Select From Photos" id="i0c-Xw-6Wh"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Pah-Pd-VrB"/>
-                                </items>
-                            </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e4T-ty-eCt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Evh-xr-yL2">
                                 <rect key="frame" x="0.0" y="44" width="375" height="579"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-FR-vVD">
+                                <rect key="frame" x="0.0" y="50" width="375" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wuk-Wd-ZvF">
+                                <rect key="frame" x="0.0" y="583" width="375" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="e4T-ty-eCt" firstAttribute="top" secondItem="riU-In-Zwf" secondAttribute="bottom" id="1ls-bK-buA"/>
-                            <constraint firstItem="riU-In-Zwf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2RQ-Ed-nzx"/>
-                            <constraint firstItem="e4T-ty-eCt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3HC-Ct-Zze"/>
-                            <constraint firstItem="TT0-0V-hoH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CKs-Lf-EET"/>
-                            <constraint firstItem="TT0-0V-hoH" firstAttribute="top" secondItem="e4T-ty-eCt" secondAttribute="bottom" id="gfj-oN-qP6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e4T-ty-eCt" secondAttribute="trailing" id="kca-Q0-W1c"/>
-                            <constraint firstItem="riU-In-Zwf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sYi-A5-smr"/>
-                            <constraint firstItem="TT0-0V-hoH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tNl-vl-NsQ"/>
-                            <constraint firstAttribute="bottom" secondItem="TT0-0V-hoH" secondAttribute="bottom" id="vx1-4A-6fk"/>
-                            <constraint firstAttribute="trailing" secondItem="riU-In-Zwf" secondAttribute="trailing" id="zjO-nQ-dN0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xEu-FR-vVD" secondAttribute="trailing" id="0vC-hF-1F7"/>
+                            <constraint firstItem="1ka-tf-fRD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Agk-7b-HfP"/>
+                            <constraint firstItem="Wuk-Wd-ZvF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LB6-0V-rKN"/>
+                            <constraint firstItem="xEu-FR-vVD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="RFr-ye-CZX"/>
+                            <constraint firstItem="xEu-FR-vVD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SyR-Os-JIO"/>
+                            <constraint firstItem="Fhs-gt-cpb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tdy-Mm-DlN"/>
+                            <constraint firstItem="Evh-xr-yL2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xws-la-1T5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wuk-Wd-ZvF" secondAttribute="bottom" constant="50" id="bc4-5p-RZQ"/>
+                            <constraint firstItem="1ka-tf-fRD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cQN-AD-BPP"/>
+                            <constraint firstItem="Fhs-gt-cpb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dfB-xV-6N8"/>
+                            <constraint firstItem="Evh-xr-yL2" firstAttribute="top" secondItem="Fhs-gt-cpb" secondAttribute="bottom" id="fyc-XZ-Zm6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Evh-xr-yL2" secondAttribute="trailing" id="grJ-gx-e88"/>
+                            <constraint firstItem="Fhs-gt-cpb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h8Z-YP-WIr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wuk-Wd-ZvF" secondAttribute="trailing" id="iEA-dC-X5Z"/>
+                            <constraint firstItem="1ka-tf-fRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uxq-vt-pAS"/>
+                            <constraint firstItem="1ka-tf-fRD" firstAttribute="top" secondItem="Evh-xr-yL2" secondAttribute="bottom" id="y84-i0-NJm"/>
                         </constraints>
                     </view>
                 </viewController>
