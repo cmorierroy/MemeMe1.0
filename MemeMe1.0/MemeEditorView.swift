@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemeEditorView: UIViewController {
+class MemeEditorView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //nav bar button outlets
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -38,6 +38,31 @@ class MemeEditorView: UIViewController {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
                 
     }
+    
+    //MARK: Toolbar actions
+    @IBAction func selectImageFromLibrary()
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func selectImageFromCamera()
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
+    {
+        imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     
 
 

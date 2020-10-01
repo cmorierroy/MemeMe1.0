@@ -20,9 +20,17 @@
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NTe-09-rFg"/>
-                                    <barButtonItem image="camera" catalog="system" id="GO1-1H-evn" userLabel="Camera Button"/>
+                                    <barButtonItem image="camera" catalog="system" id="GO1-1H-evn" userLabel="Camera Button">
+                                        <connections>
+                                            <action selector="selectImageFromCamera" destination="BYZ-38-t0r" id="ssX-Ft-Dqb"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="44r-6q-rO4"/>
-                                    <barButtonItem title="Select From Photos" id="uZy-m2-nQQ"/>
+                                    <barButtonItem title="Select From Photos" id="uZy-m2-nQQ">
+                                        <connections>
+                                            <action selector="selectImageFromLibrary" destination="BYZ-38-t0r" id="Jht-Lo-bEf"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="esW-Fx-ifW"/>
                                 </items>
                             </toolbar>
