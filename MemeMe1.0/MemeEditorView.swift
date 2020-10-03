@@ -7,20 +7,20 @@
 
 import UIKit
 
-class MemeEditorView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
+class MemeEditorView: UIViewController
 {
     //MARK: Text attributes
-    let memeTextAttributes: [NSAttributedString.Key: Any] = [
+    private let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeWidth:  -3.0,
         NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSAttributedString.Key.strokeColor: UIColor.black,
         ]
     
-    private let defaultTopText = "TOP"
-    private let defaultBottomText = "BOTTOM"
-    private var topDefaultErased = false
-    private var bottomDefaultErased = false
+    let defaultTopText = "TOP"
+    let defaultBottomText = "BOTTOM"
+    var topDefaultErased = false
+    var bottomDefaultErased = false
 
     //MARK: OUTLETS
     //nav bar button outlets
@@ -43,18 +43,48 @@ class MemeEditorView: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var toolbar: UIToolbar!
     
     //MARK: General functions
+    func toggleBars(isHidden: Bool)
+    {
+        toolbar?.isHidden = isHidden
+        navbar?.isHidden = isHidden
+    }
+    
     func enableShare(_ isEnabled: Bool)
     {
         shareButton.isEnabled = isEnabled
     }
     
-    func resetText()
+    private func configureTextFieldAttributes(_ textField: UITextField)
     {
-        //set default text
-        topText.text! = defaultTopText
-        bottomText.text! = defaultBottomText
-        topDefaultErased = false
-        bottomDefaultErased = false
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.borderStyle = .none
+        textField.textAlignment = .center
+        textField.delegate = self
+    }
+    
+    private func resetText(_ textField: UITextField, _ defaultText:String)
+    {
+        textField.text! = defaultText
+        
+        if defaultText == defaultTopText
+        {
+            topDefaultErased = false
+        }
+        else if defaultText == defaultBottomText
+        {
+            bottomDefaultErased = false
+        }
+        else
+        {
+            print("ERROR: Invalid default text.")
+        }
+    }
+    
+    private func configure(_ textField: UITextField, with defaultText: String)
+    {
+        
+        configureTextFieldAttributes(textField)
+        resetText(textField, defaultText)
     }
     
     //MARK: LIFECYCLE FUNCTIONS
@@ -62,23 +92,8 @@ class MemeEditorView: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
         super.viewDidLoad()
         
-        //Set text attributes
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-        
-        //get rid of text border
-        topText.borderStyle = .none
-        bottomText.borderStyle = .none
-        
-        //center text
-        topText.textAlignment = .center
-        bottomText.textAlignment = .center
-        
-        resetText()
-        
-        //set text delegates
-        topText.delegate = self
-        bottomText.delegate = self
+        configure(topText, with: defaultTopText)
+        configure(bottomText, with: defaultBottomText)
         
         //disable sharing function
         enableShare(false)
@@ -134,52 +149,57 @@ class MemeEditorView: UIViewController, UIImagePickerControllerDelegate, UINavig
     func getKeyboardHeight(_ notification:Notification) -> CGFloat
     {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        
         return keyboardSize.cgRectValue.height
     }
     
     //MARK: Toolbar actions/functions
     @IBAction func selectImageFromLibrary()
     {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        pickAnImage(from: .photoLibrary)
     }
     
     @IBAction func selectImageFromCamera()
     {
+        pickAnImage(from: .camera)
+    }
+    
+    private func pickAnImage(from source: UIImagePickerController.SourceType)
+    {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = source
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
-    {
-        imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        dismiss(animated: true, completion: {() in self.enableShare(true)})
-    }
-    
     //MARK: Navbar actions/functions
-    @IBAction func cancel()
+    @IBAction private func cancel()
     {
-        resetText()
+        resetText(topText, defaultTopText)
+        resetText(bottomText, defaultBottomText)
+        
         imageView.image = UIImage()
         enableShare(false)
     }
     
-    @IBAction func share()
+    @IBAction private func share()
     {
         let controller = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
     
-        controller.completionWithItemsHandler = { (activity, success, items, error) in  self.save()}
+        controller.completionWithItemsHandler =
+            { (activity, success, items, error) in
+                if success
+                {
+                    self.save()
+                }
+            }
         
         self.present(controller, animated: true, completion: nil)
     }
     
     //MARK: Saving the meme
-    func save()
+    private func save()
     {
         // Create the meme
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, origImage: imageView.image!, memedImage: generateMemedImage())
@@ -191,8 +211,7 @@ class MemeEditorView: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage {
         
         //hide bars
-        toolbar?.isHidden = true
-        navbar?.isHidden = true
+        toggleBars(isHidden: true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
@@ -201,31 +220,8 @@ class MemeEditorView: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         //show bars
-        toolbar?.isHidden = false
-        navbar?.isHidden = false
+        toggleBars(isHidden: false)
         
         return memedImage
-    }
-    
-    //MARK: UITextfield Delegate methods
-    //Clear text field when the user starts typing (only the first time around)
-    func textFieldDidBeginEditing(_ textField: UITextField)
-    {
-        if textField.text == defaultTopText && !topDefaultErased
-        {
-            textField.text = ""
-            topDefaultErased = true
-        }
-        else if textField.text == defaultBottomText && !bottomDefaultErased
-        {
-            textField.text = ""
-            bottomDefaultErased = true
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        self.view.endEditing(true)
-        return true
     }
 }
