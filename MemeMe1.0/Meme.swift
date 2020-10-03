@@ -5,13 +5,12 @@
 //  Created by Cédric Morier-Roy on 2020-10-01.
 //
 
-import Foundation
 import UIKit
 
 struct Meme
 {
-    var topText:String
-    var bottomText:String
-    var origImage:UIImage
-    var memedImage:UIImage
+    let topText:String
+    let bottomText:String
+    let origImage:UIImage
+    let memedImage:UIImage
 }
