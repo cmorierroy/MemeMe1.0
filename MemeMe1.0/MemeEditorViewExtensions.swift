@@ -1,11 +1,10 @@
 //
 //  MemeEditorViewExtensions.swift
-//  MemeMe1.0
+//  MemeMe2.0
 //
 //  Created by Cédric Morier-Roy on 2020-10-02.
 //
 
-import Foundation
 import UIKit
 
 extension MemeEditorView : UIImagePickerControllerDelegate, UINavigationControllerDelegate

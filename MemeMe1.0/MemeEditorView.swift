@@ -1,6 +1,6 @@
 //
 //  MemeEditorView.swift
-//  MemeMe1.0
+//  MemeMe2.0
 //
 //  Created by Cédric Morier-Roy on 2020-10-01.
 //
@@ -181,6 +181,8 @@ class MemeEditorView: UIViewController
         
         imageView.image = UIImage()
         enableShare(false)
+        
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction private func share()
@@ -204,7 +206,10 @@ class MemeEditorView: UIViewController
         // Create the meme
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, origImage: imageView.image!, memedImage: generateMemedImage())
         
-        print("No use for meme yet.")
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     //MARK: Generating meme image

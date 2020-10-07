@@ -1,6 +1,6 @@
 //
 //  Meme.swift
-//  MemeMe1.0
+//  MemeMe2.0
 //
 //  Created by Cédric Morier-Roy on 2020-10-01.
 //
