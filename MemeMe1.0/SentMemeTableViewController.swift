@@ -20,11 +20,9 @@ class SentMemeTableViewController : SentMemeViewController
         tableView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
-        super.viewWillAppear(true)
-        
-        print("here")
+        super.viewDidAppear(animated)
 
         //make sure all memes appear
         tableView!.reloadData()

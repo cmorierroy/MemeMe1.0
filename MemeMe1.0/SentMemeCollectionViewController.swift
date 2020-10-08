@@ -22,9 +22,9 @@ class SentMemeCollectionViewController : SentMemeViewController
         collectionView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
-        super.viewWillAppear(true)
+        super.viewDidAppear(animated)
         collectionView!.reloadData()
     }
     

@@ -187,13 +187,14 @@ class MemeEditorView: UIViewController
     
     @IBAction private func share()
     {
-        let controller = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
+        let memedImage = generateMemedImage()
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
     
         controller.completionWithItemsHandler =
             { (activity, success, items, error) in
                 if success
                 {
-                    self.save()
+                    self.save(memedImage)
                 }
             }
         
@@ -201,10 +202,10 @@ class MemeEditorView: UIViewController
     }
     
     //MARK: Saving the meme
-    private func save()
+    private func save(_ memedImage: UIImage)
     {
         // Create the meme
-        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, origImage: imageView.image!, memedImage: generateMemedImage())
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, origImage: imageView.image!, memedImage: memedImage)
         
         // Add it to the memes array in the Application Delegate
         let object = UIApplication.shared.delegate
