@@ -14,7 +14,7 @@ class SentMemeTableViewController : SentMemeViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+                
         //set the table view delegates
         tableView.dataSource = self
         tableView.delegate = self
@@ -24,6 +24,8 @@ class SentMemeTableViewController : SentMemeViewController
     {
         super.viewWillAppear(true)
         
+        print("here")
+
         //make sure all memes appear
         tableView!.reloadData()
     }

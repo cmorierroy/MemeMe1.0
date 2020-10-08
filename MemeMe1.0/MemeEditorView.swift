@@ -182,7 +182,7 @@ class MemeEditorView: UIViewController
         imageView.image = UIImage()
         enableShare(false)
         
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction private func share()
