@@ -25,7 +25,7 @@ class SentMemeTableViewController : SentMemeViewController
         super.viewDidAppear(animated)
 
         //make sure all memes appear
-        tableView!.reloadData()
+        tableView.reloadData()
     }
 }
 

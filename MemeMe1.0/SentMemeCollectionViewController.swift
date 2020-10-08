@@ -25,6 +25,7 @@ class SentMemeCollectionViewController : SentMemeViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        print("here collection")
         collectionView!.reloadData()
     }
     
